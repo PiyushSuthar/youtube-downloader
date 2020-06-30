@@ -40,7 +40,7 @@ app.get("/mp4", async (req, res) => {
                 title = info.player_response.videoDetails.title.replace(/[^\x00-\x7F]/g, "");
             });
 
-            res.header('Content-Disposition', `attachment; filename="video.mp4"`);
+            res.header('Content-Disposition', `attachment; filename="${title}.mp4"`);
             res.setHeader('Content-type', 'video/mp4');
             ytdl(url, {
                 format: "mp4",

@@ -44,7 +44,8 @@ app.get("/mp4", async (req, res) => {
             res.setHeader('Content-type', 'video/mp4');
             ytdl(url, {
                 format: "mp4",
-                quality: req.query.quality ? req.query.quality : "highest"
+                quality: req.query.quality ? req.query.quality : "highest",
+                filter: "audioandvideo"
             }).pipe(res)
 
         } catch (err) {
